@@ -1,0 +1,58 @@
+<div class="container">
+    <h3 class="text-center text-info text-decoration-underline fst-italic">Add Property Details</h3>
+    <div class="AddProduct">
+        <div class="form-group">
+            <label for="name">Property Name</label>
+            <div>
+                <!-- <input type="text" [(ngModel)]="prodName" name="" id="" class="form-control"> -->
+                <input type="text" [(ngModel)]="name" name="" id="" class="form-control">
+            </div>
+            <label for="name">Property Description</label>
+            <div>
+                <!-- <input type="text" [(ngModel)]="prodPrice" name="" id="" class="form-control"> -->
+                <input type="text" [(ngModel)]="description" name="" id="" class="form-control">
+            </div>
+            <label for="name">Property Size</label>
+            <div>
+                <!-- <input type="text" [(ngModel)]="prodPrice" name="" id="" class="form-control"> -->
+                <input type="text" [(ngModel)]="size" name="" id="" class="form-control">
+            </div>
+            <br>
+            <div>
+                <!-- <button class="btn btn-success" (click)="addProduct()">Add Product</button> -->
+                <button class="btn btn-success" (click)="addProperty()">Add Property</button>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    
+    <h1 class="text-center text-info bg-primary">List Of All Properties</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Serial No.</th>
+                <th>Property Name</th>
+                <th>Property Description</th>
+                <th>Property Size</th>
+                <th>Operation</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let property of allProterties;let i = index">
+                <tr>
+                    <td>{{i+1}}</td>
+                    <td>{{property.name}}</td>
+                    <td>{{property.description}}</td>
+                    <td>{{property.size}}</td>
+                    <td><button class="btn btn-info" (click)="deleteProperty(i)">Delete</button></td>
+                </tr>
+                
+            </ng-container>
+           
+        </tbody>
+    </table>
+    <ng-container *ngIf="allProterties.length==0">
+        <h4 class="text-danger text-center">Oops!! Properties List is Empty.</h4>
+    </ng-container>
+</div>
